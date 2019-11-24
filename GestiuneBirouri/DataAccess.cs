@@ -20,9 +20,9 @@ namespace GestiuneBirouri
                 SqlCommand sqlCommand = new SqlCommand("dbo.Utilizatori_GetByUsername @Username = '" + username + "'", connection);
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand);
                 dataAdapter.Fill(dataTable);
-                userData.Username = dataTable.Rows[0][0].ToString();
-                userData.Password = dataTable.Rows[0][1].ToString();
-                userData.AngajatID = dataTable.Rows[0][2].ToString();
+                userData.Username = dataTable.Rows[0][1].ToString();
+                userData.Password = dataTable.Rows[0][2].ToString();
+                userData.AngajatID = dataTable.Rows[0][3].ToString();
                 DataTable dataTable2 = new DataTable();
                 SqlCommand sqlCommand2 = new SqlCommand("dbo.Angajati_Utilizatori_GetInfo @username = '" + username + "'", connection);
                 SqlDataAdapter dataAdapter2 = new SqlDataAdapter(sqlCommand);
@@ -67,14 +67,14 @@ namespace GestiuneBirouri
                 UserData userData = new UserData();
                 DataTable dataTable = new DataTable();
                 SqlCommand sqlCommand = new SqlCommand("dbo.Angajati_InsertUser @username ='" + username + "' ,@password = '" + passwordEncrypter.encryptPassword(password) +
-                    "' ,@utilizatorID =  " + angajatID, connection);
+                    "' ,@angajatID =  " + angajatID, connection);
                 try
                 {
                     sqlCommand.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Utilizatorul deja exista");
+                    MessageBox.Show("Utilizatorul exista deja");
                 }
 
             }

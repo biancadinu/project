@@ -26,3 +26,17 @@ C:\Users\Bi\Desktop\Project\Project\GestiuneBirouri\bin\Debug\GestiuneBirouri.pd
 C:\Users\Bi\Desktop\Project\Project\GestiuneBirouri\bin\Debug\Dapper.dll
 C:\Users\Bi\Desktop\Project\Project\GestiuneBirouri\bin\Debug\Dapper.xml
 C:\Users\Bi\Desktop\Project\Project\GestiuneBirouri\obj\Debug\GestiuneBirouri.csproj.CopyComplete
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\bin\Debug\GestiuneBirouri.exe.config
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\bin\Debug\GestiuneBirouri.exe
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\bin\Debug\GestiuneBirouri.pdb
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\bin\Debug\Dapper.dll
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\bin\Debug\Dapper.xml
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\obj\Debug\GestiuneBirouri.csprojAssemblyReference.cache
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\obj\Debug\GestiuneBirouri.LogInForm.resources
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\obj\Debug\GestiuneBirouri.Properties.Resources.resources
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\obj\Debug\GestiuneBirouri.RegisterForm.resources
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\obj\Debug\GestiuneBirouri.csproj.GenerateResource.cache
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\obj\Debug\GestiuneBirouri.csproj.CoreCompileInputs.cache
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\obj\Debug\GestiuneBirouri.csproj.CopyComplete
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\obj\Debug\GestiuneBirouri.exe
+C:\Users\Bi\Desktop\Project\ProjectFSE\project\GestiuneBirouri\obj\Debug\GestiuneBirouri.pdb
