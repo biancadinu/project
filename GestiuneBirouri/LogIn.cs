@@ -26,7 +26,9 @@ namespace GestiuneBirouri
                 userData = da.GetUserData(usernameTextBox.Text.ToString());
                 if (verifiyPassword(passwordTextBox.Text.ToString(), userData.Password))
                 {
-                    MessageBox.Show("Loggin done");
+                    MainMenu openMainMenu = new MainMenu(userData);
+                    openMainMenu.Show();
+                    this.Hide();
                 }
                 else
                 {

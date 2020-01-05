@@ -54,9 +54,84 @@ namespace GestiuneBirouri
                 {
                     return false;
                 }
-
             }
         }
+
+        public DataTable getFreeRoomsByDateAndTime(DateTimePicker dateAndTime, int time, string nameOfRoom)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionValue("connectionString")))
+            {
+                DataTable dataTable = new DataTable();
+                SqlCommand sqlCommand = new SqlCommand("dbo.GetFreeRoomsByName @dateStart ='" + dateAndTime.Value.Year.ToString() + "-" + dateAndTime.Value.Month.ToString() +
+                                                                "-" + dateAndTime.Value.Day.ToString() + " " + dateAndTime.Value.Hour.ToString() + ":" +
+                                                                                    dateAndTime.Value.Minute.ToString() + ":" + dateAndTime.Value.Second + "',@time = " + time + ",@name = '" + nameOfRoom + "'", connection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlDataAdapter.Fill(dataTable);
+
+                return dataTable;
+            }
+        }
+
+        public DataTable getRezervari()
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionValue("connectionString")))
+            {
+                DataTable dataTable = new DataTable();
+                SqlCommand sqlCommand = new SqlCommand("dbo.GetRezervari", connection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlDataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+        }
+
+        public DataTable getRezervari(string numeSala)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionValue("connectionString")))
+            {
+                DataTable dataTable = new DataTable();
+                SqlCommand sqlCommand = new SqlCommand("dbo.GetRezervariByNumeSala @numesala ='" + numeSala + "'", connection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlDataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+        }
+
+        public void insertIntoRezervari(DateTimePicker dateAndTime, int time, string nameOfRoom, string username)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionValue("connectionString")))
+            {
+                SqlCommand sqlCommand = new SqlCommand("dbo.InsertInRezervari @dateStart ='" + dateAndTime.Value.Year.ToString() + "-" + dateAndTime.Value.Month.ToString() +
+                                                                "-" + dateAndTime.Value.Day.ToString() + " " + dateAndTime.Value.Hour.ToString() + ":" +
+                                                                                    dateAndTime.Value.Minute.ToString() + ":" + dateAndTime.Value.Second + "',@time = " + time + ",@name = '" + nameOfRoom + "' " +
+                                                                                    ",@username = '" + username + "'", connection);
+                try
+                {
+                    connection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("The room " + nameOfRoom + " was booked successfully");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
+            }
+        }
+
+        public DataTable getFreeRoomsByDateAndTime(DateTimePicker dateAndTime, int time)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionValue("connectionString")))
+            {
+                DataTable dataTable = new DataTable();
+                SqlCommand sqlCommand = new SqlCommand("dbo.GetFreeRooms @dateStart ='" + dateAndTime.Value.Year.ToString() + "-" + dateAndTime.Value.Month.ToString() +
+                                                                "-" + dateAndTime.Value.Day.ToString() + " " + dateAndTime.Value.Hour.ToString() + ":" +
+                                                                                    dateAndTime.Value.Minute.ToString() + ":" + dateAndTime.Value.Second + "',@time = " + time, connection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlDataAdapter.Fill(dataTable);
+
+                return dataTable;
+            }
+        }
+
 
         private void insertUsernameAndPassword(string username, string password, string angajatID)
         {
@@ -78,8 +153,6 @@ namespace GestiuneBirouri
                 }
 
             }
-
-
         }
     }
 }
