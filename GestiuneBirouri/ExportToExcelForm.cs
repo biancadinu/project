@@ -6,6 +6,7 @@ namespace GestiuneBirouri
     public partial class ExportToExcelForm : Form
     {
         UserData userData = new UserData();
+
         public ExportToExcelForm()
         {
             InitializeComponent();
@@ -18,6 +19,7 @@ namespace GestiuneBirouri
 
         private void exportEverythingButton_Click(object sender, EventArgs e)
         {
+
         }
 
         private void button1_Click(object sender, EventArgs e)

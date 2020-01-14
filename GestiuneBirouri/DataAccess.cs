@@ -102,7 +102,7 @@ namespace GestiuneBirouri
             {
                 SqlCommand sqlCommand = new SqlCommand("dbo.InsertInRezervari @dateStart ='" + dateAndTime.Value.Year.ToString() + "-" + dateAndTime.Value.Month.ToString() +
                                                                 "-" + dateAndTime.Value.Day.ToString() + " " + dateAndTime.Value.Hour.ToString() + ":" +
-                                                                                    dateAndTime.Value.Minute.ToString() + ":" + dateAndTime.Value.Second + "',@time = " + time + ",@name = '" + nameOfRoom + "' " +
+                                                                                    dateAndTime.Value.Minute.ToString() + ":" + dateAndTime.Value.Second + "',@time = " + time + ",@roomName = '" + nameOfRoom + "' " +
                                                                                     ",@username = '" + username + "'", connection);
                 try
                 {
@@ -122,7 +122,7 @@ namespace GestiuneBirouri
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionValue("connectionString")))
             {
                 DataTable dataTable = new DataTable();
-                SqlCommand sqlCommand = new SqlCommand("dbo.GetFreeRooms @dateStart ='" + dateAndTime.Value.Year.ToString() + "-" + dateAndTime.Value.Month.ToString() +
+                SqlCommand sqlCommand = new SqlCommand("dbo.getFreeRoomsByDateAndTime @dateStart ='" + dateAndTime.Value.Year.ToString() + "-" + dateAndTime.Value.Month.ToString() +
                                                                 "-" + dateAndTime.Value.Day.ToString() + " " + dateAndTime.Value.Hour.ToString() + ":" +
                                                                                     dateAndTime.Value.Minute.ToString() + ":" + dateAndTime.Value.Second + "',@time = " + time, connection);
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
