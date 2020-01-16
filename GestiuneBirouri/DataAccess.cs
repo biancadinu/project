@@ -132,6 +132,94 @@ namespace GestiuneBirouri
             }
         }
 
+        public DataTable getAllInfo()
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionValue("connectionString")))
+            {
+                DataTable dataTable = new DataTable();
+                SqlCommand sqlCommand = new SqlCommand("dbo.GetAllInfo", connection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlDataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+        }
+
+        public DataTable getAllInfo(int floor)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionValue("connectionString")))
+            {
+                DataTable dataTable = new DataTable();
+                SqlCommand sqlCommand = new SqlCommand("dbo.GetAllInfoByFloor @floor=" + floor, connection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                try
+                {
+                    sqlDataAdapter.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Etajul este incorect");
+                }
+                return dataTable;
+            }
+        }
+
+        public DataTable getAllInfo(string roomName)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionValue("connectionString")))
+            {
+                DataTable dataTable = new DataTable();
+                SqlCommand sqlCommand = new SqlCommand("dbo.GetAllInfoByRoomName @name=" + roomName, connection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                try
+                {
+                    sqlDataAdapter.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Room doesn't exist");
+                }
+                return dataTable;
+            }
+        }
+
+        public DataTable getAllInfoAboutMyself(string username)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionValue("connectionString")))
+            {
+                DataTable dataTable = new DataTable();
+                SqlCommand sqlCommand = new SqlCommand("dbo.GetAllInfoByUsername @username=" + username, connection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                try
+                {
+                    sqlDataAdapter.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("You don't have any reservations");
+                }
+                return dataTable;
+            }
+        }
+
+        public DataTable getAllRoomsNotUsed(string username)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionValue("connectionString")))
+            {
+                DataTable dataTable = new DataTable();
+                SqlCommand sqlCommand = new SqlCommand("dbo.GetAllInfoExceptMyRooms @username=" + username, connection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                try
+                {
+                    sqlDataAdapter.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("You don't have any reservations");
+                }
+                return dataTable;
+            }
+        }
+
 
         private void insertUsernameAndPassword(string username, string password, string angajatID)
         {

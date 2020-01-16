@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="DataAccess.cs" />
     <Compile Include="Encrypter.cs" />
+    <Compile Include="Exporter.cs" />
     <Compile Include="ExportToExcelForm.cs">
       <SubType>Form</SubType>
     </Compile>
